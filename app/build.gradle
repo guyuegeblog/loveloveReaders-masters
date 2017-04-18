@@ -21,7 +21,7 @@ android {
     buildToolsVersion "25.0.1"
     defaultConfig {
     //  applicationId "com.bccnw.reader.meimeilovereader"//正式包名
-        applicationId "com.de.blinkt.openvpn.ovpn"//测试包名(测试3个登陆用的,需要赶快申请啊)
+        applicationId "com.de.blinkt.openvpn.ovpn"//测试包名(测试3个登陆用的,需要赶快申请微博)
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 2
