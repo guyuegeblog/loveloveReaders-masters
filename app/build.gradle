@@ -1,0 +1,141 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        //bccnw正式签名
+//        bccnw {
+//            keyAlias 'bccnw'
+//            keyPassword '1234567890'
+//            storeFile file('../bccnw.jks')
+//            storePassword '1234567890'
+//        }
+        //vpnpay1001测试签名
+        bccnw {
+            keyAlias 'vpnpay1001'
+            keyPassword '123456'
+            storeFile file('../vpnpay1001.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+    //  applicationId "com.bccnw.reader.meimeilovereader"//正式包名
+        applicationId "com.de.blinkt.openvpn.ovpn"//测试包名(测试3个登陆用的,需要赶快申请啊)
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 2
+        versionName "1.0.1"
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "diuZy7v1jN61qUUkAuky6A",
+                GETUI_APP_KEY   : "Mw76eZkQxJ9rMymuDZn1bA",
+                GETUI_APP_SECRET: "NjmdIhHVEA6hmBqeRsA6B8"
+        ]
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86_64"
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.bccnw
+            zipAlignEnabled true
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.bccnw
+            zipAlignEnabled true
+        }
+    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+    //设置虚拟机堆内存空间大小，避免在编译期间OOM
+//    dexOptions {
+//        incremental true
+//        javaMaxHeapSize "4g"
+//    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    productFlavors {
+        xiaomi {}
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    //5.0特性
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:design:25.0.0'
+    compile 'com.android.support:cardview-v7:25.0.0'
+    //友盟统计
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    //recyclerview
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    //glide
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    //httpclient
+    compile 'org.apache.httpcomponents:httpcore:4.4.4'
+    //banner
+    compile 'com.youth.banner:banner:+'
+    //recyclerview多类型布局
+    compile project(path: ':library')
+    compile project(':material-spinner-1.0.5')
+    //okhttp
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.squareup.okio:okio:1.7.0'
+    //注解
+    compile 'com.jakewharton:butterknife:7.0.0'
+    //个推送
+    compile 'com.getui:sdk:2.10.2.0'
+    compile 'com.android.support:support-v4:+'
+    //bottom风格
+    compile 'com.cocosw:bottomsheet:1.3.0@aar'
+    //weibo
+    compile 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
+    // leakcanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    // fast json
+    compile 'com.alibaba:fastjson:1.2.23'
+    //weixin
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+//    // rxjava
+//    compile 'io.reactivex:rxjava:1.1.9'
+//    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+//    compile 'com.trello:rxlifecycle:1.0'
+//    compile 'com.trello:rxlifecycle-components:1.0'
+//    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
+//    // retrofit
+//    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+//    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+//    // greendao
+//    compile 'org.greenrobot:greendao:3.1.0'
+//    // circleimageview
+//    compile 'de.hdodenhof:circleimageview:2.1.0'
+//    // html text
+//    compile 'com.zzhoujay.richtext:richtext:2.0.9'
+//    // LabelView
+//    compile 'com.flyco.labelview:FlycoLabelView_Lib:1.0.2@aar'
+//    // photoview
+//    compile 'com.github.chrisbanes.photoview:library:1.2.4'
+//    // jsoup
+//    compile 'com.github.jhy:jsoup:jsoup-1.10.2'
+
+
+}
