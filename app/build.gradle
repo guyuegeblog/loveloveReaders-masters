@@ -25,7 +25,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 2
-        versionName "1.0.2"
+        versionName "1.0.3"
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
         manifestPlaceholders = [
@@ -61,69 +61,36 @@ android {
 //        incremental true
 //        javaMaxHeapSize "4g"
 //    }
+    //打包不检查
+//    lintOptions {
+//        checkReleaseBuilds false
+//        abortOnError false
+//    }
     repositories {
         flatDir {
             dirs 'libs'
         }
     }
-    productFlavors {
-        xiaomi {}
-    }
-    productFlavors.all {
-        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-    }
+//    productFlavors {
+//        xiaomi {}
+//    }
+//    productFlavors.all {
+//        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+//    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    //5.0特性
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:design:25.0.0'
-    compile 'com.android.support:cardview-v7:25.0.0'
-    //友盟统计
-    compile 'com.umeng.analytics:analytics:latest.integration'
-    //recyclerview
-    compile 'com.android.support:recyclerview-v7:25.0.1'
-    //glide
-    compile 'com.github.bumptech.glide:glide:3.5.2'
-    //httpclient
     compile 'org.apache.httpcomponents:httpcore:4.4.4'
-    //banner
     compile 'com.youth.banner:banner:+'
-    //recyclerview多类型布局
+//    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+//    compile 'com.squareup.okio:okio:1.7.0'
+    compile 'com.getui:sdk:2.10.2.0'
+    compile 'com.cocosw:bottomsheet:1.3.0@aar'
+    compile 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
     compile project(path: ':library')
     compile project(':material-spinner-1.0.5')
-    //okhttp
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile 'com.squareup.okio:okio:1.7.0'
-    //注解
-    compile 'com.jakewharton:butterknife:7.0.0'
-    //个推送
-    compile 'com.getui:sdk:2.10.2.0'
-    compile 'com.android.support:support-v4:+'
-    //bottom风格
-    compile 'com.cocosw:bottomsheet:1.3.0@aar'
-    //weibo
-    compile 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
-    // leakcanary
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-    // fast json
-    compile 'com.alibaba:fastjson:1.2.23'
-    //weixin
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
-//    // rxjava
-//    compile 'io.reactivex:rxjava:1.1.9'
-//    compile 'io.reactivex:rxandroid:1.2.1'
-//    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
-//    compile 'com.trello:rxlifecycle:1.0'
-//    compile 'com.trello:rxlifecycle-components:1.0'
-//    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
-//    // retrofit
-//    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-//    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 //    // greendao
 //    compile 'org.greenrobot:greendao:3.1.0'
 //    // circleimageview

@@ -1,4 +1,4 @@
-package com.bccnw.reader.meimeilovereader.util;
+package com.bccnw.reader.meimeilovereader.utils;
 
 /**
  * Created by ASUS on 2017/4/14.

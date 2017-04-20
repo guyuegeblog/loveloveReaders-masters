@@ -561,6 +561,8 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_jump:
+                startActivity(new Intent(mContext,HomeActivity.class));
+                mContext.finish();
                 break;
             case R.id.qq_login:
                 qqLogin();

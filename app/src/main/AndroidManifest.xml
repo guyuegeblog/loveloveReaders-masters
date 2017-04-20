@@ -36,7 +36,7 @@
         android:icon="@drawable/ic_cloudreader_mip"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/MyThemeRed">
+        android:theme="@style/AppTheme">
 
         <!--&lt;!&ndash; 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复&ndash;&gt;-->
         <!--<service android:name="com.app.Service.DemoIntentService"/>-->
@@ -50,12 +50,12 @@
         <!--</service>-->
 
         <!-- 友盟统计 -->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="meimeidareader" />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}" />
+        <!--<meta-data-->
+            <!--android:name="UMENG_APPKEY"-->
+            <!--android:value="meimeidareader" />-->
+        <!--<meta-data-->
+            <!--android:name="UMENG_CHANNEL"-->
+            <!--android:value="${UMENG_CHANNEL_VALUE}" />-->
 
         <!--qq登陆-start-->
         <activity
